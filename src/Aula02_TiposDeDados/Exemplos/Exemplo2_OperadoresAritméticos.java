@@ -1,6 +1,6 @@
 package Aula02_TiposDeDados.Exemplos;
 
-public class Exemplo2 {
+public class Exemplo2_OperadoresAritméticos {
     public static void main(String[] args) {
         int total, numero1 = 5, numero2 = 7;
 

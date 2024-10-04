@@ -2,7 +2,7 @@ package Aula02_TiposDeDados.Exemplos;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Exemplo1 {
+public class Exemplo1_Variaveis {
     public static void main(String[] args) {
         int anoNasc;
         double peso;

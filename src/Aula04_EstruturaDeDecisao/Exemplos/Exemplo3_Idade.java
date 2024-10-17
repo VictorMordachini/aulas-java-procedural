@@ -1,4 +1,5 @@
 package Aula04_EstruturaDeDecisao.Exemplos;
+
 import java.util.Scanner;
 
 public class Exemplo3_Idade {
@@ -13,9 +14,11 @@ public class Exemplo3_Idade {
             System.out.println("Adolescente");
         } else if (idade >= 18 && idade < 65) {
             System.out.println("Adulto");
-        } else {
+        } else if (idade >= 65) {
             System.out.println("Idoso");
+        } else {
+            System.out.println("Valor inválido");
         }
-
+        scanner.close();
     }
 }

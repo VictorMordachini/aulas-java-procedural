@@ -10,9 +10,9 @@ public class Exemplo3_Idade {
 
         if (idade > 0 && idade <= 12) {
             System.out.println("Criança");
-        } else if (idade >= 13 && idade < 18) {
+        } else if (idade > 12 && idade < 18) {
             System.out.println("Adolescente");
-        } else if (idade >= 18 && idade < 65) {
+        } else if (idade > 17 && idade < 65) {
             System.out.println("Adulto");
         } else if (idade >= 65) {
             System.out.println("Idoso");

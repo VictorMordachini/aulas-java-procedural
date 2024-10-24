@@ -1,4 +1,5 @@
 package Aula05_EstruturaDeRepetição.Exemplos;
+
 import java.util.Scanner;
 
 public class Exemplo1_While {

@@ -2,7 +2,7 @@ package Aula02_TiposDeDados.Exercicios;
 
 import java.util.Scanner;
 
-public class Exercício05 {
+public class Exercício05_SomaNotas {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Digite as três notas: ");

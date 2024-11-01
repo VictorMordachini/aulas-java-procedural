@@ -1,6 +1,6 @@
 package Aula05_EstruturaDeRepetição.Exercícios;
 
-public class Exercício02 {
+public class Exercício02_SomaParesWhile {
     public static void main(String[] args) {
         int x = 0, soma = 0;
         while (x<100){

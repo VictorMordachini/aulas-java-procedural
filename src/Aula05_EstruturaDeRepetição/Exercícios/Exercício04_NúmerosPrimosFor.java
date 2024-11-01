@@ -2,7 +2,7 @@ package Aula05_EstruturaDeRepetição.Exercícios;
 
 import java.util.Scanner;
 
-public class Exercício04 {
+public class Exercício04_NúmerosPrimosFor {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Digite um número inteiro positivo: ");

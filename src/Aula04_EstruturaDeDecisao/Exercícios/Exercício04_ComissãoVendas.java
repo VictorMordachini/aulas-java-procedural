@@ -2,7 +2,7 @@ package Aula04_EstruturaDeDecisao.Exercícios;
 
 import java.util.Scanner;
 
-public class Exercício04 {
+public class Exercício04_ComissãoVendas {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         double vendas, comissao;

@@ -2,7 +2,7 @@ package Aula02_TiposDeDados.Exercicios;
 
 import java.util.Scanner;
 
-public class Exercício07 {
+public class Exercício07_OperadoresLógicos {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean cond1, cond2, cond3;

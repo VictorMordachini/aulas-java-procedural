@@ -2,7 +2,7 @@ package Aula04_EstruturaDeDecisao.Exercícios;
 
 import java.util.Scanner;
 
-public class Exercício05 {
+public class Exercício05_HorasExtras {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         double horasTrabalhadas, valorHora, horasExtras, valorExtras, valorPago;

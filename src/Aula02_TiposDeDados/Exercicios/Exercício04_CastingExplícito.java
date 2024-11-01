@@ -2,7 +2,7 @@ package Aula02_TiposDeDados.Exercicios;
 
 import java.util.Scanner;
 
-public class Exercício04 {
+public class Exercício04_CastingExplícito {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Digite um número fracionado: ");

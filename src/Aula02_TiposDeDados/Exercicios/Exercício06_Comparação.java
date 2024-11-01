@@ -2,7 +2,7 @@ package Aula02_TiposDeDados.Exercicios;
 
 import java.util.Scanner;
 
-public class Exercício06 {
+public class Exercício06_Comparação {
     public static void main(String[] args) {
         int num1, num2;
         boolean comparacao;

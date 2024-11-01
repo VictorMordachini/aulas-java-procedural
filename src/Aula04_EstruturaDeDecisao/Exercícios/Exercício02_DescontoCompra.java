@@ -2,7 +2,7 @@ package Aula04_EstruturaDeDecisao.Exercícios;
 
 import java.util.Scanner;
 
-public class Exercício02 {
+public class Exercício02_DescontoCompra {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Digite o valor do produto 1(R$): ");

@@ -2,7 +2,7 @@ package Aula02_TiposDeDados.Exercicios;
 
 import java.util.Scanner;
 
-public class Exercício02 {
+public class Exercício02_SalárioHora {
     public static void main(String[] args) {
         int total, horas, valorHora;
         Scanner scanner = new Scanner(System.in);

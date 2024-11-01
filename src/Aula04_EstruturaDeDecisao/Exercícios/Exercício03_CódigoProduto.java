@@ -2,7 +2,7 @@ package Aula04_EstruturaDeDecisao.Exercícios;
 
 import java.util.Scanner;
 
-public class Exercício03 {
+public class Exercício03_CódigoProduto {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int codigoProduto;

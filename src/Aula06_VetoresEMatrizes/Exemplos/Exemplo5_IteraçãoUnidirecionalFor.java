@@ -1,6 +1,6 @@
 package Aula06_VetoresEMatrizes.Exemplos;
 
-public class Exemplo5_IteraçãoUnidirecional {
+public class Exemplo5_IteraçãoUnidirecionalFor {
     public static void main(String[] args) {
         int[] numeros = {1,2,3,4,5};
         for (int i = 0; i < numeros.length; i++) {

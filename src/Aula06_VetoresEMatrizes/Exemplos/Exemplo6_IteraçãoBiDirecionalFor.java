@@ -1,6 +1,6 @@
 package Aula06_VetoresEMatrizes.Exemplos;
 
-public class Exemplo6_IteraçãoBiDirecional {
+public class Exemplo6_IteraçãoBiDirecionalFor {
     public static void main(String[] args) {
         int[][] matrizNumeros = {
                 {1,2,3},

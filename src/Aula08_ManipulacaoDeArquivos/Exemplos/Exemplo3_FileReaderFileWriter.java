@@ -10,7 +10,7 @@ public class Exemplo3_FileReaderFileWriter {
         File arquivo = new File("src\\Aula08_ManipulacaoDeArquivos\\Exemplos\\arquivo.txt");
 
         try {
-            FileWriter fileWriter = new FileWriter(arquivo);
+            FileWriter fileWriter = new FileWriter(arquivo, true); //true: não sobrescreve o que já há no arquivo
             fileWriter.write("Texto a ser gravado no arquivo");
             fileWriter.close();
 

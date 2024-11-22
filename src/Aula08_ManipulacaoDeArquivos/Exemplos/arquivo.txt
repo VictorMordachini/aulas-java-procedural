@@ -1,1 +1,1 @@
-Texto a ser gravado no arquivo
+Novo texto a ser gravado no arquivo

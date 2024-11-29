@@ -7,8 +7,9 @@ public class Desafio01 {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Digite a quantidade de usuários que deseja cadastrar: ");
         int qtdUsuarios = scanner.nextInt();
+        scanner.nextLine();
 
-        String[] cabecalho = {"ID", "Nome", "E-mail", "Telefone"};
+        String[] cabecalho = {"ID", "Nome", "Telefone", "E-mail"};
         String[][] cadastro = new String[qtdUsuarios + 1][cabecalho.length];
         cadastro[0] = cabecalho;
 
@@ -17,11 +18,11 @@ public class Desafio01 {
             System.out.println("ID: " + linha);
             cadastro[linha][0] = String.valueOf(linha);
             System.out.print("Nome: ");
-            cadastro[linha][1] = scanner.next();
-            System.out.print("E-mail: ");
-            cadastro[linha][2] = scanner.next();
+            cadastro[linha][1] = scanner.nextLine();
             System.out.print("Telefone: ");
-            cadastro[linha][3] = scanner.next();
+            cadastro[linha][2] = scanner.nextLine();
+            System.out.print("E-mail: ");
+            cadastro[linha][3] = scanner.nextLine();
 
         }
 

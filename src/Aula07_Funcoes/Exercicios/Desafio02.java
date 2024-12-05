@@ -55,6 +55,15 @@ public class Desafio02 {
     }
 
     static void exibirCadastro() {
+        String tabela = "";
+        for (String[] linhas : cadastro) {
+            for (int coluna = 0; coluna < cadastro[0].length; coluna++) {
+                tabela += linhas[coluna] + "\t\t";
+
+            }
+            tabela += "\n";
+        }
+        System.out.println(tabela);
 
 
     }

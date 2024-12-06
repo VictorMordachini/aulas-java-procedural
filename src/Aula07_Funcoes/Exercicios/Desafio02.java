@@ -17,8 +17,8 @@ public class Desafio02 {
                 |  Escolha uma opção:                      |
                 |    1 - Exibir Cadastro Completo          |
                 |    2 - Inserir novo usuário              |
-                |    3 - Atualizar cadastro por id         |
-                |    4 - Deletar um cadastro por id        |
+                |    3 - Atualizar cadastro por ID         |
+                |    4 - Deletar um cadastro por ID        |
                 |    5 - Sair                              |
                 |__________________________________________|
                 """;
@@ -55,15 +55,19 @@ public class Desafio02 {
     }
 
     static void exibirCadastro() {
-        String tabela = "";
+        StringBuilder tabela = new StringBuilder();
+        int tamanhoColuna;
         for (String[] linhas : cadastro) {
             for (int coluna = 0; coluna < cadastro[0].length; coluna++) {
-                tabela += linhas[coluna] + "\t\t";
+                tamanhoColuna = coluna == 0 ? 5 : (coluna == 2 ? 13 : 25);
+                tabela.append(String.format("%-"+tamanhoColuna+"s |", linhas[coluna]));
 
             }
-            tabela += "\n";
+            tabela.append("\n");
         }
         System.out.println(tabela);
+
+
 
 
     }

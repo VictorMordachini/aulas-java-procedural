@@ -60,14 +60,12 @@ public class Desafio02 {
         for (String[] linhas : cadastro) {
             for (int coluna = 0; coluna < cadastro[0].length; coluna++) {
                 tamanhoColuna = coluna == 0 ? 5 : (coluna == 2 ? 13 : 25);
-                tabela.append(String.format("%-"+tamanhoColuna+"s |", linhas[coluna]));
+                tabela.append(String.format("%-" + tamanhoColuna + "s |", linhas[coluna]));
 
             }
             tabela.append("\n");
         }
         System.out.println(tabela);
-
-
 
 
     }
@@ -97,6 +95,18 @@ public class Desafio02 {
     }
 
     static void atualizarUsuario() {
+        exibirCadastro();
+        System.out.print("\nDigite o ID do usuário que deseja atualizar: ");
+        int idEscolhido = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println(cabecalho[0] + " - " + idEscolhido);
+        for (int coluna = 1; coluna < cabecalho.length; coluna++) {
+            System.out.print(cabecalho[coluna] + ": ");
+            cadastro[idEscolhido][coluna] = scanner.nextLine();
+
+        }
+        exibirCadastro();
 
 
     }

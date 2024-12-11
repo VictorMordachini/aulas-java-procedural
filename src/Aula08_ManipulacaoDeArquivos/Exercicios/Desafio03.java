@@ -1,9 +1,13 @@
-package Aula07_Funcoes.Exercicios;
+package Aula08_ManipulacaoDeArquivos.Exercicios;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Desafio02 {
+public class Desafio03 {
 
     static Scanner scanner = new Scanner(System.in);
     static String[] cabecalho = {"ID", "Nome", "Telefone", "E-mail"};
@@ -89,6 +93,7 @@ public class Desafio02 {
             }
         }
         cadastro = novaMatriz;
+        salvarDadosNoArquivo();
     }
 
     public static void atualizarUsuario() {
@@ -103,6 +108,7 @@ public class Desafio02 {
         }
         System.out.println("Usuário atualizado com sucesso!");
         exibirCadastro();
+        salvarDadosNoArquivo();
     }
 
     public static void deletarUsuario() {
@@ -125,10 +131,27 @@ public class Desafio02 {
         }
 
         cadastro = novaMatriz;
+        salvarDadosNoArquivo();
 
         System.out.println("Usuário deletado com sucesso!");
         exibirCadastro();
     }
 
+    public static void salvarDadosNoArquivo() {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(""))) {
+            for (String[] linha : cadastro) {
+                bufferedWriter.write(String.join(",", linha) + "\n");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
+    public static void carregarDadosDoArquivo() {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(""))) {
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

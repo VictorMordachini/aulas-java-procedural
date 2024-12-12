@@ -1,33 +1,33 @@
 package Aula08_ManipulacaoDeArquivos.Exercicios;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Desafio03 {
 
+    //Variável global
+    static String [] cabecalho = {"ID","NOME","TELEFONE","EMAIL"};
+    static String [][] matrizCadastro = {{"",""}};
     static Scanner scanner = new Scanner(System.in);
-    static String[] cabecalho = {"ID", "Nome", "Telefone", "E-mail"};
-    static String[][] cadastro = {{"", ""}};
+    static File arquivoBancoDeDados = new File(System.getProperty("user.home"),"bancoDeDados.txt");
 
     public static void main(String[] args) {
-        cadastro[0] = cabecalho;
+        carregarDadosDoArquivo();
+        matrizCadastro[0]= cabecalho;
 
-        String menu = """
-                _____________________________________________
-                |   Escolha uma opção:                      |
-                |       1- Exibir Cadastro Completo         |
-                |       2- Inserir Novo Usuário             |
-                |       3- Atualizar Cadastro por ID        |
-                |       4- Deletar um Cadastro por ID       |
-                |       5- Sair                             |
-                |___________________________________________|
+        String menu= """
+                _________________________________________________________________
+                |   Escolha uma Opção:                                          |
+                |       1- Exibir Cadastro Completo                             |
+                |       2- Cadastrar Usuário                                    |
+                |       3- Atualizar Usuário                                    |
+                |       4- Deletar Usuário                                      |
+                |       5- Sair                                                 |
+                |_______________________________________________________________|
                 """;
-
         int opcao;
+
         do {
             System.out.println(menu);
             opcao = scanner.nextInt();
@@ -35,123 +35,160 @@ public class Desafio03 {
 
             switch (opcao) {
                 case 1:
-                    exibirCadastro();
+                    exibirUsuarios();
                     break;
                 case 2:
-                    cadastrarUsuario();
+                    cadastrarUsuarios();
                     break;
                 case 3:
-                    atualizarUsuario();
+                    atualizarUsuarios();
                     break;
                 case 4:
-                    deletarUsuario();
+                    deletarUsuarios();
                     break;
                 case 5:
-                    System.out.println("Fim do programa");
+                    System.out.println("Fim de Programa");
                     scanner.close();
                     break;
                 default:
-                    System.out.println("Opção Inválida!");
+                    System.out.println("Opção inválida.");
             }
-        } while (opcao != 5);
-    }
+        }while (opcao != 5);
 
-    public static void exibirCadastro() {
+    }
+    public static void exibirUsuarios(){
         StringBuilder tabela = new StringBuilder();
-        for (String[] linhas : cadastro) {
-            for (int colunas = 0; colunas < cadastro[0].length; colunas++) {
-                int tamanhocoluna = colunas == 0 ? 5 : (colunas == 2 ? 12 : 25);
-                tabela.append(String.format("%-" + tamanhocoluna + "s | ", linhas[colunas])); // Espaçamento entre as colunas
+
+        for (String[] linha : matrizCadastro) {
+            for (int coluna = 0; coluna < linha.length; coluna++) {
+                int tamanhoColuna = coluna == 0? 5 : (coluna == 2? 10 :25);
+                tabela.append(String.format("%-"+tamanhoColuna+"s | ",linha[coluna]));
+
             }
-            tabela.append("\n"); // Para pular a próxima linha
+
+            tabela.append("\n");
+
         }
 
         System.out.println(tabela);
-    }
 
-    public static void cadastrarUsuario() {
-        System.out.print("Digite a quantidade de usuários que deseja cadastrar: ");
-        int qtdUsuarios = scanner.nextInt();
-        String[][] novaMatriz = new String[cadastro.length + qtdUsuarios][cabecalho.length];
+    }
+    public static void cadastrarUsuarios(){
+
+        System.out.print("Informe a quantidade de usuários a serem cadastrados:");
+        int qntUsuario = scanner.nextInt();
         scanner.nextLine();
 
-        for (int linha = 0; linha < cadastro.length; linha++) {
-            novaMatriz[linha] = Arrays.copyOf(cadastro[linha], cadastro[linha].length);
+        String[][] novaMatriz= new String[matrizCadastro.length + qntUsuario][cabecalho.length];
+        for ( int linha = 0; linha < matrizCadastro.length ;linha++){
+            novaMatriz [linha] = Arrays.copyOf(matrizCadastro[linha],matrizCadastro[linha].length);
         }
 
         System.out.println("Preencha os dados a seguir:");
-        for (int linha = cadastro.length; linha < novaMatriz.length; linha++) {
 
-            System.out.println("Cadastro da pessoa " + linha);
+        for (int linha = matrizCadastro.length; linha < novaMatriz.length ;linha++){
+            System.out.println(cabecalho[0]+": "+linha);
+            novaMatriz[linha][0] =String.valueOf(linha);
 
-            System.out.println(cabecalho[0] + ": " + linha);
-            novaMatriz[linha][0] = String.valueOf(linha); //Converte valor inteiro para String
+            for (int coluna  = 1; coluna  < cabecalho.length; coluna ++) {
+                System.out.print(cabecalho[coluna] +": ");
+                novaMatriz [linha][coluna] = scanner.nextLine();
 
-            for (int coluna = 1; coluna < cabecalho.length; coluna++) {
-                System.out.print(cabecalho[coluna] + ": ");
-                novaMatriz[linha][coluna] = scanner.nextLine();
             }
         }
-        cadastro = novaMatriz;
+
+
+        matrizCadastro = novaMatriz;
+        System.out.println("Usuário Cadastrado com Sucesso.");
         salvarDadosNoArquivo();
+
     }
+    public static void atualizarUsuarios(){
 
-    public static void atualizarUsuario() {
-        exibirCadastro();
-        System.out.println("\nDigite o ID do usuário que deseja atualizar: ");
-        int idEscolhido = scanner.nextInt();
+       exibirUsuarios();
 
-        System.out.println(cabecalho[0] + ": " + idEscolhido);
-        for (int coluna = 1; coluna < cabecalho.length; coluna++) {
-            System.out.print(cabecalho[coluna] + ": ");
-            cadastro[idEscolhido][coluna] = scanner.nextLine();
-        }
-        System.out.println("Usuário atualizado com sucesso!");
-        exibirCadastro();
-        salvarDadosNoArquivo();
-    }
-
-    public static void deletarUsuario() {
-
-        exibirCadastro();
-
-        System.out.println("Digite o ID do usuário que deseja deletar: ");
+        System.out.print("\nDigite o ID do Usuário que Deseja Atualizar:");
         int idEscolhido = scanner.nextInt();
         scanner.nextLine();
 
-        String[][] novaMatriz = new String[cadastro.length - 1][cabecalho.length];
-        novaMatriz[0] = cabecalho;
-        for (int linha = 1, idNovaMatriz = 1; linha < cadastro.length; linha++) {
-            if (linha == idEscolhido) {
-                continue;
-            }
-            novaMatriz[idNovaMatriz] = Arrays.copyOf(cadastro[linha], cadastro[linha].length);
-            novaMatriz[idNovaMatriz][0] = String.valueOf(idNovaMatriz);
-            idNovaMatriz++;
+        System.out.println("Atualize as Informações a Seguir");
+        System.out.println(cabecalho[0]+ " - "+ idEscolhido);
+
+        for (int coluna = 1; coluna < cabecalho.length; coluna++) {
+            System.out.println(cabecalho[coluna]+": ");
+            matrizCadastro [idEscolhido][coluna]= scanner.nextLine();
         }
 
-        cadastro = novaMatriz;
+        exibirUsuarios();
+        System.out.println("Usuário Atualizado com Sucesso.");
         salvarDadosNoArquivo();
 
-        System.out.println("Usuário deletado com sucesso!");
-        exibirCadastro();
     }
 
-    public static void salvarDadosNoArquivo() {
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(""))) {
-            for (String[] linha : cadastro) {
-                bufferedWriter.write(String.join(",", linha) + "\n");
+    public static void deletarUsuarios(){
+     exibirUsuarios();
+
+        System.out.print("\nDigite o ID do Usuário que Deseja Deletar o Registro:");
+        int idEscolhido = scanner.nextInt();
+        scanner.nextLine();
+
+        String[][] novaMatriz= new String[matrizCadastro.length - 1 ][cabecalho.length];
+        for ( int linha = 0, idNovaMatriz = 0; linha < matrizCadastro.length ;linha++){
+            if (linha == idEscolhido){
+                continue;
             }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+            novaMatriz [idNovaMatriz] = Arrays.copyOf(matrizCadastro[linha],matrizCadastro[linha].length);
+            novaMatriz[idNovaMatriz][0]= String.valueOf(idNovaMatriz);
+            idNovaMatriz++;
         }
+        matrizCadastro= novaMatriz;
+        exibirUsuarios();
+        System.out.println("Usuário Deletado com Sucesso.");
+        salvarDadosNoArquivo();
+
     }
+    public static void salvarDadosNoArquivo(){
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(arquivoBancoDeDados))){
+            for (String[]linha: matrizCadastro){
+               bufferedWriter.write( String.join(",",linha)+"\n");
+            }
+        } catch (Exception e){
+            throw new RuntimeException();
 
-    public static void carregarDadosDoArquivo() {
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(""))) {
+        }
+
+    }
+    public static void carregarDadosDoArquivo(){
+        String linha;
+        StringBuilder conteudoArquivo = new StringBuilder();
+        if (!arquivoBancoDeDados.exists()){
+            try {
+                if (arquivoBancoDeDados.createNewFile()){
+                    System.out.println("Arquivo criado "+arquivoBancoDeDados.getName()+" com sucesso");
+                };
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        try(BufferedReader bufferedReader = new BufferedReader(new FileReader(arquivoBancoDeDados))) {
+
+            while ((linha = bufferedReader.readLine())!= null){
+                conteudoArquivo.append(linha).append("\n");
+            }
+
+            String[] linhaDadosUsuario = conteudoArquivo.toString().split("\n");
+
+            matrizCadastro = new String[linhaDadosUsuario.length][cabecalho.length];
+
+            for (int i = 0; i < linhaDadosUsuario.length; i++) {
+                matrizCadastro[i] = linhaDadosUsuario[i].split(",");
+
+            }
 
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
+
     }
 }

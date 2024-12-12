@@ -61,7 +61,7 @@ public class Desafio03 {
 
         for (String[] linha : matrizCadastro) {
             for (int coluna = 0; coluna < linha.length; coluna++) {
-                int tamanhoColuna = coluna == 0? 5 : (coluna == 2? 10 :25);
+                int tamanhoColuna = coluna == 0? 5 : (coluna == 2? 12 :25);
                 tabela.append(String.format("%-"+tamanhoColuna+"s | ",linha[coluna]));
 
             }
@@ -115,7 +115,7 @@ public class Desafio03 {
         System.out.println(cabecalho[0]+ " - "+ idEscolhido);
 
         for (int coluna = 1; coluna < cabecalho.length; coluna++) {
-            System.out.println(cabecalho[coluna]+": ");
+            System.out.print(cabecalho[coluna]+": ");
             matrizCadastro [idEscolhido][coluna]= scanner.nextLine();
         }
 

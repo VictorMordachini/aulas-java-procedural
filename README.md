@@ -40,8 +40,8 @@ O repositório é dividido em pacotes, cada um representando um tópico central 
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/victormordachini/aulas-java-lopal.git](https://github.com/victormordachini/aulas-java-lopal.git)
-    cd aulas-java-lopal
+    git clone [https://github.com/victormordachini/aulas-java-procedural.git](https://github.com/victormordachini/aulas-java-procedural.git)
+    cd aulas-java-procedural
     ```
 
 2.  **Abra o projeto** em sua IDE de preferência (IntelliJ, Eclipse, etc.).

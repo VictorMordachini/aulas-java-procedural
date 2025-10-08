@@ -40,7 +40,7 @@ O repositório é dividido em pacotes, cada um representando um tópico central 
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/seu-usuario/aulas-java-lopal.git](https://github.com/seu-usuario/aulas-java-lopal.git)
+    git clone [https://github.com/victormordachini/aulas-java-lopal.git](https://github.com/victormordachini/aulas-java-lopal.git)
     cd aulas-java-lopal
     ```
 
